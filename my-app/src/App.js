@@ -2,18 +2,28 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Edit from "./Edit";
 import ToDo from "./ToDo";
-import React from "react";
+import { React, useState } from "react";
 import { BasicTable } from "./components/BasicTable";
 import Nav from "./Nav";
+let id = 0;
 
 function App() {
+  const [listItem, setItem] = useState(0);
+  console.log(listItem);
+
+  const [list, setList] = useState([]);
+
+  const onAdd = (toDo) => {
+    setList((prevVal) => [...prevVal, { id: (id += 1), toDo: toDo }]);
+  };
+
   return (
     <div className="App">
       {/* Component insertion */}
       <Nav />
       <br></br>
-      <BasicTable />
-      <ToDo />
+      <BasicTable item={listItem} data={list} />
+      <ToDo addItem={onAdd} />
 
       {/* Routing set-up, allows url switches based on paths below */}
       <Routes>

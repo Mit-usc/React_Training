@@ -4,36 +4,22 @@ import "./table.css";
 
 const columns_table = [
   {
+    Header: "index",
+    accessor: "id",
+  },
+  {
     Header: "To-Do List",
-    accessor: "to_do",
+    accessor: "toDo",
   },
 ];
 
-var data_table = [
-  {
-    to_do: "synergize end-to-end systems",
-  },
-  {
-    to_do: "optimize robust functionalities",
-  },
-  {
-    to_do: "deliver one-to-one mindshare",
-  },
-  {
-    to_do: "e-enable dot-com channels",
-  },
-  {
-    to_do: "revolutionize extensible synergies",
-  },
-];
-
-export const BasicTable = () => {
+export const BasicTable = ({ item, data }) => {
   const columns = useMemo(() => columns_table, []);
-  const data = useMemo(() => data_table, []);
+  const tableData = useMemo(() => data, [data]);
 
   const tableInstance = useTable({
     columns: columns,
-    data: data,
+    data: tableData,
   });
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =

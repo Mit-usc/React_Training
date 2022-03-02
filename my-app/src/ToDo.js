@@ -1,14 +1,12 @@
 import "./App.css";
 import { React, useState } from "react";
 
-function ToDo() {
+function ToDo(props) {
   const handleChange = (event) => {
-    //this.props.parentCallback(event.target.value);
     setItem(event.target.value);
-    console.log(listItem);
   };
 
-  const [listItem, setItem] = useState(0);
+  const [listItem, setItem] = useState("Tidy up workstation");
 
   return (
     <div>
@@ -19,6 +17,7 @@ function ToDo() {
         name="listItem"
         id="listItem"
       />
+      <button onClick={() => props.addItem(listItem)}>Submit</button>
     </div>
   );
 }
