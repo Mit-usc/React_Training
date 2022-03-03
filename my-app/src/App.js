@@ -5,11 +5,32 @@ import ToDo from "./ToDo";
 import { React, useState } from "react";
 import { BasicTable } from "./components/BasicTable";
 import Nav from "./Nav";
-let id = 0;
+let id = 5;
 
 function App() {
   const [listItem, setItem] = useState(0);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState([
+    {
+      id: 1,
+      toDo: "reinvent impactful deliverables",
+    },
+    {
+      id: 2,
+      toDo: "enable cross-platform infomediaries",
+    },
+    {
+      id: 3,
+      toDo: "synergize turn-key methodologies",
+    },
+    {
+      id: 4,
+      toDo: "engage web-enabled e-business",
+    },
+    {
+      id: 5,
+      toDo: "evolve magnetic supply-chains",
+    },
+  ]);
 
   // Function to add a specific to-do task to current list
   const onAdd = (toDo) => {
@@ -48,6 +69,7 @@ function App() {
       }
     });
 
+    id--;
     // removes false value from array generated above (logic should be better optimized here)
     const newArr2 = newArr.filter((val) => val !== false);
     console.log(newArr2);
@@ -59,15 +81,24 @@ function App() {
       {/* Component insertion */}
       <Nav />
       <br></br>
+
       <BasicTable item={listItem} data={list} />
+      {/*
       <ToDo addItem={onAdd} />
       <Edit editItem={onEdit} deleteItem={onDelete} />
+      */}
 
       {/* Routing set-up, allows url switches based on paths below */}
       <Routes>
-        <Route path="/todo" element={<ToDo />} />
-        <Route path="/edit" element={<Edit />} />
-        <Route path="/table" element={<BasicTable />} />
+        <Route path="/todo" element={<ToDo addItem={onAdd} />} />
+        <Route
+          path="/edit"
+          element={<Edit editItem={onEdit} deleteItem={onDelete} />}
+        />
+        <Route
+          path="/table"
+          element={<BasicTable item={listItem} data={list} />}
+        />
       </Routes>
     </div>
   );

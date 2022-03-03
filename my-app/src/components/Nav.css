@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  min-height: 10vh;
+  background: #af2020;
+  color: white;
+  width: 50%;
+}
+
+.nav-links {
+  text-decoration: "none";
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 20px;
+  margin: 5px;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  opacity: 1;
+  border: 3px solid #ff7a59;
+}
+
+.nav-links:hover {
+  opacity: 0.5;
+}
