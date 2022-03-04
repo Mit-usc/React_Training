@@ -1,11 +1,15 @@
 import { React, useMemo } from "react";
-import { useTable } from "react-table";
 import "./table.css";
+import { Link } from "react-router-dom";
+import { useTable } from "react-table";
 
 const columns_table = [
   {
     Header: "index",
     accessor: "id",
+    Cell: ({ value }) => {
+      return <Link to={`/edit/${value}`}>{value}</Link>;
+    },
   },
   {
     Header: "To-Do List",
@@ -13,7 +17,7 @@ const columns_table = [
   },
 ];
 
-export const BasicTable = ({ item, data }) => {
+export const BasicTable = ({ data }) => {
   const columns = useMemo(() => columns_table, []);
   const tableData = useMemo(() => data, [data]);
 
@@ -26,7 +30,7 @@ export const BasicTable = ({ item, data }) => {
     tableInstance;
 
   return (
-    <div>
+    <div className="container">
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

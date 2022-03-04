@@ -1,7 +1,12 @@
 table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 75%;
+  top: 30px;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
 table td,
@@ -24,4 +29,9 @@ table th {
   text-align: center;
   background-color: #af2020;
   color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
 }

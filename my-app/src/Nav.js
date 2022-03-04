@@ -7,15 +7,21 @@ function Nav() {
     <div className="container">
       <nav>
         <ul className="container">
-          <Link to="/" className="nav-links">
-            <li>Home</li>
-          </Link>
-          <Link to="/todo" className="nav-links">
-            <li>Add</li>
-          </Link>
-          <Link to="/edit" className="nav-links">
-            <li>Modify</li>
-          </Link>
+          <div className="nav-links">
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              <li>Home</li>
+            </Link>
+          </div>
+          <div className="nav-links">
+            <Link to="/todo" style={{ textDecoration: "none", color: "white" }}>
+              <li>Add</li>
+            </Link>
+          </div>
+          <div className="nav-links">
+            <Link to="/edit" style={{ textDecoration: "none", color: "white" }}>
+              <li>Modify</li>
+            </Link>
+          </div>
         </ul>
       </nav>
     </div>

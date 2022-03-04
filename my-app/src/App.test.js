@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, fireEvent } from "@testing-library/react";
+import App from "./App";
+import { MemoryRouter } from "react-router-dom";
 
-test('renders learn react link', () => {
+test("adding new item into list", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  const linkElement = screen.getByText("To-Do List");
   expect(linkElement).toBeInTheDocument();
 });

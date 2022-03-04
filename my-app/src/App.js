@@ -8,7 +8,6 @@ import Nav from "./Nav";
 let id = 5;
 
 function App() {
-  const [listItem, setItem] = useState(0);
   const [list, setList] = useState([
     {
       id: 1,
@@ -54,26 +53,15 @@ function App() {
   };
 
   // Function to delete a specific to-do task
-  const onDelete = (indexDelete) => {
-    var index = 0;
-
+  const onDelete = (data) => {
+    const idToDelete = data.id2;
+    console.log(idToDelete, data);
     // Loops through all entries within to-do list and only adds non-to-delete values
-    var newArr = Object.entries(list).map(([key, value]) => {
-      index++;
-      // eslint-disable-next-line eqeqeq
-      if (value.id == indexDelete.id2) {
-        index--;
-        return false;
-      } else {
-        return { id: index, toDo: value.toDo };
-      }
+    var newArr = list.filter((item) => {
+      console.log(item.id, typeof item.id, typeof idToDelete, idToDelete);
+      return item.id !== Number(idToDelete);
     });
-
-    id--;
-    // removes false value from array generated above (logic should be better optimized here)
-    const newArr2 = newArr.filter((val) => val !== false);
-    console.log(newArr2);
-    setList(newArr2);
+    setList(newArr);
   };
 
   return (
@@ -82,23 +70,16 @@ function App() {
       <Nav />
       <br></br>
 
-      <BasicTable item={listItem} data={list} />
-      {/*
-      <ToDo addItem={onAdd} />
-      <Edit editItem={onEdit} deleteItem={onDelete} />
-      */}
+      <BasicTable data={list} />
 
       {/* Routing set-up, allows url switches based on paths below */}
       <Routes>
         <Route path="/todo" element={<ToDo addItem={onAdd} />} />
         <Route
-          path="/edit"
+          path="/edit/:id"
           element={<Edit editItem={onEdit} deleteItem={onDelete} />}
         />
-        <Route
-          path="/table"
-          element={<BasicTable item={listItem} data={list} />}
-        />
+        <Route path="/table" element={<BasicTable data={list} />} />
       </Routes>
     </div>
   );
