@@ -9,17 +9,20 @@ function Nav() {
         <ul className="container">
           <div className="nav-links">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <li>Home</li>
+              <li data-testid="homeButton">Home</li>
             </Link>
           </div>
           <div className="nav-links">
             <Link to="/todo" style={{ textDecoration: "none", color: "white" }}>
-              <li>Add</li>
+              <li data-testid="addButton">Add</li>
             </Link>
           </div>
           <div className="nav-links">
-            <Link to="/edit" style={{ textDecoration: "none", color: "white" }}>
-              <li>Modify</li>
+            <Link
+              to="/delete"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <li>Delete</li>
             </Link>
           </div>
         </ul>

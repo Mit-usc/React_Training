@@ -9,17 +9,20 @@ function ToDo(props) {
   const [listItem, setItem] = useState("Tidy up workstation");
 
   return (
-    <div class="login-box">
-      <div class="user-box">
+    <div className="login-box">
+      <div className="user-box">
         <h2>Add Item</h2>
         <input
           onChange={handleChange}
           type="text"
           name="listItem"
           id="listItem"
+          data-testid="addInput"
         />
       </div>
-      <button onClick={() => props.addItem(listItem)}>Submit</button>
+      <button onClick={() => props.addItem(listItem)} data-testid="addSubmit">
+        Submit
+      </button>
     </div>
   );
 }

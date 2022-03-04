@@ -1,10 +1,12 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Edit from "./Edit";
 import ToDo from "./ToDo";
 import { React, useState } from "react";
 import { BasicTable } from "./components/BasicTable";
 import Nav from "./Nav";
+import Delete from "./components/Delete";
+
 let id = 5;
 
 function App() {
@@ -73,6 +75,7 @@ function App() {
       <BasicTable data={list} />
 
       {/* Routing set-up, allows url switches based on paths below */}
+
       <Routes>
         <Route path="/todo" element={<ToDo addItem={onAdd} />} />
         <Route
@@ -80,6 +83,7 @@ function App() {
           element={<Edit editItem={onEdit} deleteItem={onDelete} />}
         />
         <Route path="/table" element={<BasicTable data={list} />} />
+        <Route path="/delete" element={<Delete deleteItem={onDelete} />} />
       </Routes>
     </div>
   );
