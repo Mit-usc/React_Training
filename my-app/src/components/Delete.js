@@ -26,11 +26,11 @@ function Delete(props) {
 
           {/* include validation with required or other standard HTML validation rules */}
           <input
-            defaultValue="Enter Index"
             {...register("id2", { required: true })}
+            data-testid="deleteInput"
           />
         </div>
-        <input type="submit" />
+        <input type="submit" data-testid="deleteSubmit" />
 
         {/* errors will return when field validation fails  */}
         {errors.exampleRequired && <span>This field is required</span>}

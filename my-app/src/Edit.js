@@ -34,11 +34,12 @@ function Edit(props) {
         </div>
         <div className="user-box">
           <input
+            data-testid="enterEditInput"
             defaultValue="Enter To-Do Item"
             {...register("item", { required: true })}
           />
         </div>
-        <input type="submit" />
+        <input type="submit" data-testid="submitEditInput" />
         <br></br>
 
         {/* errors will return when field validation fails  */}

@@ -56,8 +56,8 @@ function App() {
 
   // Function to delete a specific to-do task
   const onDelete = (data) => {
+    console.log(data);
     const idToDelete = data.id2;
-    console.log(idToDelete, data);
     // Loops through all entries within to-do list and only adds non-to-delete values
     var newArr = list.filter((item) => {
       console.log(item.id, typeof item.id, typeof idToDelete, idToDelete);

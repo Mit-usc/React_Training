@@ -22,7 +22,7 @@ function Nav() {
               to="/delete"
               style={{ textDecoration: "none", color: "white" }}
             >
-              <li>Delete</li>
+              <li data-testid="deleteButton">Delete</li>
             </Link>
           </div>
         </ul>
